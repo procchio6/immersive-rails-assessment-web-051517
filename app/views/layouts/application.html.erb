@@ -9,6 +9,11 @@
   </head>
 
   <body>
+    <% if logged_in? %>
+      <%= link_to "  Episodes  ", episodes_path %>
+      <%= link_to "  Guests  ", guests_path %>
+      <%= link_to "  Logout  ", sessions_path, method: :delete %>
+    <% end %>
     <%= yield %>
   </body>
 </html>

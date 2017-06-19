@@ -1,0 +1,21 @@
+<%= link_to "All Episodes", episodes_path %>
+
+<h1>Episode Show Page</h1>
+<p>Number:  <%= @episode.number %> </p>
+<p>Date: <%= @episode.date %> </p>
+<h2>Guests:</h2>
+<%= link_to "Add Appearance", new_appearance_path %>
+<table>
+  <thead>
+    <th>Guest Name</th>
+    <th>Rating</th>
+  </thead>
+  <tbody>
+    <% @episode.appearances.each do |appearance| %>
+    <tr>
+      <td><%= link_to appearance.guest.name, guest_path(appearance.guest) %></td>
+      <td><%= appearance.rating %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
